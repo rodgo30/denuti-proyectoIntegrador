@@ -1,0 +1,40 @@
+
+<div class="card bg-dark text-white">
+    <div class="card-header">
+        {{titulo}}
+    </div>    
+    <div class="card-body">
+        <form (ngSubmit) = "OnSubmit()">
+            <div class="form-group row">
+                    <label for="nombre" class="col-form-label col-sm-2">Nombre</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" [(ngModel)]="receta.nombre" name="nombre">
+                    </div>
+            </div>
+            <div class="form-group row">
+                <label for="ingredientes" class="col-form-label col-sm-2">Ingredientes</label>
+                <div class="col-sm-6">
+                    <textarea class="form-control" rows="6" [(ngModel)]="receta.ingredientes" name="ingredientes"></textarea>
+                </div>
+            </div>            
+            <div class="form-group row">
+                    <label for="preparacion" class="col-form-label col-sm-2">Preparación</label>
+                    <div class="col-sm-6">
+                        <textarea class="form-control" rows="8" [(ngModel)]="receta.preparacion" name="preparacion"></textarea>
+                    </div>
+            </div>
+            <div class="form-group row">
+                    <label for="preparacion" class="col-form-label col-sm-2">Imagen</label>
+                    <div class="col-sm-6">
+                        <input type="file" class="form-control" rows="8" (change)="elegirArchivo($event)" [(ngModel)]="receta.imagen" name="imagen"/>
+                    </div>
+            </div>            
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <button class="btn btn-primary">Crear Receta</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

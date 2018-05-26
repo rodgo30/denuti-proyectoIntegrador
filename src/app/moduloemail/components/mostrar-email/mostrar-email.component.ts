@@ -1,21 +1,25 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'mostrar-email',
+  template: `
+    <h4>{{titulo}}</h4>
+    <span *ngIf="emailContacto" style="color: white" >
+      Email de Contacto: {{emailContacto}}
+    </span>
+  `
 })
-export class AppComponent implements DoCheck, OnInit {
-  title = 'app';
+
+export class MostrarEmailComponent implements OnInit, DoCheck{
+  titulo = 'mostrar-email';
+
   emailContacto:string;
 
   ngOnInit(){
     this.emailContacto = localStorage.getItem('emailContacto');
-    // console.log(localStorage.getItem('emailContacto'));
   }
 
   ngDoCheck(){
-    // console.log(localStorage.getItem('emailContacto'));
     this.emailContacto = localStorage.getItem('emailContacto');
   }
 
