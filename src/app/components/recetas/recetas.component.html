@@ -1,30 +1,39 @@
 <br>
 <br>
 <br>
-
 <h1>{{titulo}}</h1>
-<div class="my-2 text-left">
-		<button class="btn btn-rounded btn-success" type="button" [routerLink]="['/recetas-form']">Crear Receta</button>
+<div *ngIf="!recetas">
+	Cargando Recetas....
 </div>
-<table class="table">
-		<thead class="thead-dark">
-		  <tr>
-			<th scope="col">Id</th>
-			<th scope="col">Nombre</th>
-			<th scope="col">Ingredientes</th>
-			<th scope="col">Preparación</th>
-		  </tr>
-		</thead>
-		<tbody>
-		  <tr *ngFor="let receta of recetas"> 
-			
-			<td>{{receta.id}}</td>			
-			<td>{{receta.nombre}}</td>
-			<td>{{receta.ingredientes}}</td>
-			<td>{{receta.preparacion}}</td>
-			<td>
-				<button type="button" name="button" [routerLink] = "['recetas-form', receta.id]" class="btn btn-primary">Editar</button>
-			</td>
-		  </tr>
-		</tbody>
-	  </table>
+<div *ngIf="recetas">
+	<div class="row">
+		<div class="col-lg-4" *ngFor="let receta of recetas">
+			<div class="thumnnail">
+				<div *ngIf="receta.imagen" class="imagen-container">
+					<img src="http://localhost:8088/denuti-back-end/uploads/{{receta.imagen}}" class="producto-imagen">
+				</div>
+				<div *ngIf="!receta.imagen">
+					<div class="imagen-relleno"></div>
+				</div>
+				<div class="caption">
+					<p>{{receta.id}}ID</p>
+					<strong>{{receta.nombre}}</strong>
+					<p>{{receta.ingredientes}}</p>
+					<p>{{receta.preparacion}}</p>
+					<div class="botones" *ngIf="confirmado != receta.id">
+						<a [routerLink] = "['/receta', receta.id]" class="btn btn-md btn-primary">Detalle</a>
+						<a [routerLink] = "['/editar-receta', receta.id]" class="btn btn-md btn-warning">Editar</a>
+						<a (click) = "confirmarBorrado(receta.id)" class="btn btn-md btn-danger">Borrar</a>
+					</div>
+					<div class="confirmar" *ngIf="confirmado==receta.id">						
+						<a (click)="borrarreceta(receta.id)" class="btn btn-md btn-danger">Sí, deseo borrar el producto <strong>{{producto.nombre}}</strong> ?</a>
+						<a (click)="cancelarBorrado()" class="btn btn-md btn-warning">Cancelar</a>
+					</div>					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div style="padding: 15px;">
+	<button type="button" class="btn btn-success" [routerLink]="['/crear-receta']">Crear Receta</button>
+</div>

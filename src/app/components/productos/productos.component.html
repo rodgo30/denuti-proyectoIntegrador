@@ -2,26 +2,37 @@
 <br>
 <br>
 <h1>{{titulo}}</h1>
-<div style="padding: 15px;">
-		<button type="button" class="btn btn-success">Listar Productos</button>
-		<button type="button" class="btn btn-success">Guardar Productos</button>
+<div *ngIf="!productos">
+	Cargando productos....
 </div>
-<table class="table">
-		<thead class="thead-dark">
-		  <tr>
-			<th scope="col">Id</th>
-			<th scope="col">Nombre</th>
-			<th scope="col">Descripción</th>
-			<th scope="col">Imagen</th>
-		  </tr>
-		</thead>
-		<tbody>
-		  <tr *ngFor="let item of productos"> 
-			
-			<td>{{item.id}}</td>			
-			<td>{{item.nombre}}</td>
-			<td>{{item.descripcion}}</td>
-			<td>{{item.imagen}}</td>
-		  </tr>
-		</tbody>
-	  </table>
+<div *ngIf="productos">
+	<div class="row">
+		<div class="col-lg-4" *ngFor="let producto of productos">
+			<div class="thumnnail">
+				<div *ngIf="producto.imagen" class="imagen-container">
+					<img src="http://localhost:8088/denuti-back-end/uploads/{{producto.imagen}}" class="producto-imagen">
+				</div>
+				<div *ngIf="!producto.imagen">
+					<div class="imagen-relleno"></div>
+				</div>
+				<div class="caption">
+					<p>{{producto.id}}ID</p>
+					<strong>{{producto.nombre}}</strong>
+					<p>{{producto.descripcion}}</p>
+					<div class="botones" *ngIf="confirmado != producto.id">
+						<a [routerLink] = "['/producto', producto.id]" class="btn btn-md btn-primary">Detalle</a>
+						<a [routerLink] = "['/editar-producto', producto.id]" class="btn btn-md btn-warning">Editar</a>
+						<a (click) = "confirmarBorrado(producto.id)" class="btn btn-md btn-danger">Borrar</a>
+					</div>
+					<div class="confirmar" *ngIf="confirmado==producto.id">						
+						<a (click)="borrarProducto(producto.id)" class="btn btn-md btn-danger">Sí, deseo borrar el producto <strong>{{producto.nombre}}</strong> ?</a>
+						<a (click)="cancelarBorrado()" class="btn btn-md btn-warning">Cancelar</a>
+					</div>					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div style="padding: 15px;">
+	<button type="button" class="btn btn-success" [routerLink]="['/crear-producto']">Crear Producto</button>
+</div>

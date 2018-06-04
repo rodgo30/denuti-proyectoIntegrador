@@ -8,8 +8,11 @@ import { ProductosComponent } from './components/productos/productos.component';
 import { RecetasComponent } from './components/recetas/recetas.component';
 import { AcercaComponent } from './components/acerca/acerca.component';
 import { ContactenosComponent } from './components/contactenos/contactenos.component';
-import { RecetasFormComponent } from './components/recetas/recetas-form.component';
-
+import { RecetasAddComponent } from './components/recetas/recetas-add.component';
+import { ErrorComponent } from './components/error.component';
+import { ProductoAddComponent } from './components/productos/producto-add.component';
+import { ProductoDetailComponent } from './components/productos/producto-detail.component';
+import { ProductoEditComponent } from './components/productos/producto-edit-component';
 
 const appRoutes: Routes = [
 //{path: '', component: InicioComponent},
@@ -19,10 +22,12 @@ const appRoutes: Routes = [
 {path: 'recetas', component: RecetasComponent},
 {path: 'acerca', component: AcercaComponent},
 {path: 'contactenos', component: ContactenosComponent},
-{path: 'recetas-form', component: RecetasFormComponent},
-{path: 'recetas-form/:id', component: RecetasFormComponent}
-
-//{path: '**', component: InicioComponent}
+{path: 'crear-receta', component: RecetasAddComponent},
+{path: 'receta/:id', component: RecetasComponent},
+{path: 'crear-producto', component: ProductoAddComponent},
+{path: 'producto/:id',component: ProductoDetailComponent},
+{path: 'editar-producto/:id',component: ProductoEditComponent},
+{path: '**', component: ErrorComponent}
 ];
 
 export const appRoutingProviders: any[] = [];

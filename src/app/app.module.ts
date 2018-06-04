@@ -17,10 +17,13 @@ import { ProductosComponent } from './components/productos/productos.component';
 import { RecetasComponent } from './components/recetas/recetas.component';
 import { AcercaComponent } from './components/acerca/acerca.component';
 import { ContactenosComponent } from './components/contactenos/contactenos.component';
-import { RecetasFormComponent } from './components/recetas/recetas-form.component';
+import { RecetasAddComponent } from './components/recetas/recetas-add.component';
+import { ErrorComponent } from './components/error.component';
 import { RecetasService } from './components/recetas/recetas.service';
-import { recetasModel } from './model/recetas.model';
-
+import { recetasModel } from './models/recetas.model';
+import { ProductoAddComponent } from './components/productos/producto-add.component';
+import { ProductoDetailComponent } from './components/productos/producto-detail.component';
+import { ProductoEditComponent } from './components/productos/producto-edit-component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,11 @@ import { recetasModel } from './model/recetas.model';
     RecetasComponent,
     AcercaComponent,
     ContactenosComponent,
-    RecetasFormComponent
+    RecetasAddComponent, 
+    ProductoAddComponent,
+    ProductoDetailComponent,
+    ProductoEditComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,

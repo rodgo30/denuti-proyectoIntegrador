@@ -1,31 +1,68 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { ProductosService } from './productos.service';
-import { productosModel } from './../../model/productos.model';
+import { ProductoService } from './productos.service';
+import { productosModel } from './../../models/productos.model';
 
 @Component({
   selector: 'productos',
   templateUrl: './productos.component.html',
-  providers: [ProductosService]
+  providers: [ProductoService]
 })
 export class ProductosComponent implements OnInit{
-  
-  private productos: Array<productosModel>;
+  public titulo:string;
+  public productos:productosModel[];
+  public confirmado;
 
-  titulo = 'Página DENUTI productos';
-
-  constructor(private productosService: ProductosService){
-
+  constructor(
+    private _route: ActivatedRoute,
+    private _router:Router,
+    private _productosService: ProductoService
+  ){
+    this.titulo = 'Listado de productos';
+    this.confirmado = null;
   }
   
   ngOnInit(){
-    this.loadProductos();
+    this.getProductos();
     console.log('productos.component cargado !!');
   }
 
-  private loadProductos(): void{
-    this.productosService.getProductos().subscribe(res=>{
-      this.productos = res;
-      console.log(res);
-    });
+  private getProductos(): void{
+    this._productosService.getProductos().subscribe(
+      result=>{      
+        // console.log(result.code + " MAS " + result.value)
+        if(result.code != 200){
+          console.log('getProductos ' + result);
+        }else{
+          this.productos = result.data;
+        }
+      },
+      error => {
+        console.log(<any>error);
+      }
+    );
   }
+
+  public borrarProducto(id){
+    this._productosService.deleteProducto(id).subscribe(
+      response =>{
+        if(response.code == 200){
+          this.getProductos();
+        }else{
+          alert('Error al borrar producto');
+        }
+      },
+      error =>{
+        console.log(<any>error);
+      }
+    );
+  } 
+
+  public confirmarBorrado(id){
+    this.confirmado = id;
+  }
+
+  public cancelarBorrado(){
+    this.confirmado = null;
+  }  
 }
