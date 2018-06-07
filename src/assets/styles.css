@@ -17,14 +17,53 @@
     width: 100%;
     overflow: hidden;
 }
+
 .producto-imagen{
-    height: 200px;
-    margin: 0% auto;
+    height: 400px;
+    /* width: 400px; */
+    margin: 5% auto;
+    /* margin-left: 10%; */
     display: block;
+    
 }
 
+.detalle-imagen{
+    height: 500px;
+    width: 600px;
+    margin: 5% auto;
+    /* margin-left: 10%; */
+    display: block;
+    
+}
+
+.cortar{
+    width:300px;
+    height:50px;
+    /* padding:10px; */
+    border:1px solid white;
+    text-overflow:ellipsis;
+    white-space:nowrap; 
+    overflow:hidden;
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    transition: all 1s;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
 .imagen-relleno{
-    background: #ccc;
+    background: blueviolet;
     width: 100%;
     height: 200px;
+}
+
+.container2{
+    /* font-family: ]-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
+    font-family: cursive; 
+}
+
+.descripcion{
+    font-family: Comic Sans MS;
+    
 }

@@ -15,18 +15,19 @@
 				<div *ngIf="!receta.imagen">
 					<div class="imagen-relleno"></div>
 				</div>
-				<div class="caption">
-					<p>{{receta.id}}ID</p>
+				<div class="container">
 					<strong>{{receta.nombre}}</strong>
-					<p>{{receta.ingredientes}}</p>
-					<p>{{receta.preparacion}}</p>
+				</div>
+				<div class="container">
+					<!-- <p class="cortar">{{receta.ingredientes}}</p> -->
+					<p class="cortar">{{receta.preparacion}}</p>
 					<div class="botones" *ngIf="confirmado != receta.id">
 						<a [routerLink] = "['/receta', receta.id]" class="btn btn-md btn-primary">Detalle</a>
 						<a [routerLink] = "['/editar-receta', receta.id]" class="btn btn-md btn-warning">Editar</a>
 						<a (click) = "confirmarBorrado(receta.id)" class="btn btn-md btn-danger">Borrar</a>
 					</div>
 					<div class="confirmar" *ngIf="confirmado==receta.id">						
-						<a (click)="borrarreceta(receta.id)" class="btn btn-md btn-danger">Sí, deseo borrar el producto <strong>{{producto.nombre}}</strong> ?</a>
+						<a (click)="borrarReceta(receta.id)" class="btn btn-md btn-danger">Sí, deseo borrar la receta <strong>{{receta.nombre}}</strong> ?</a>
 						<a (click)="cancelarBorrado()" class="btn btn-md btn-warning">Cancelar</a>
 					</div>					
 				</div>
@@ -34,6 +35,7 @@
 		</div>
 	</div>
 </div>
-<div style="padding: 15px;">
+<br>
+<div class="container">
 	<button type="button" class="btn btn-success" [routerLink]="['/crear-receta']">Crear Receta</button>
 </div>

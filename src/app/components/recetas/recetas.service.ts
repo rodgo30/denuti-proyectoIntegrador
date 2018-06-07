@@ -1,5 +1,4 @@
 import { recetasModel } from './../../models/recetas.model';
-import { HttpClientModule, HttpClient, HttpHeaders  } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Http, Response, Headers, RequestOptions, } from '@angular/http';
@@ -7,8 +6,7 @@ import 'rxjs/add/operator/map';
 import { GLOBAL } from './../global';
 
 @Injectable()
-export class RecetasService {
-  
+export class RecetasService {  
   private url: string;
 
   constructor(

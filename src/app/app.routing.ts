@@ -9,21 +9,24 @@ import { RecetasComponent } from './components/recetas/recetas.component';
 import { AcercaComponent } from './components/acerca/acerca.component';
 import { ContactenosComponent } from './components/contactenos/contactenos.component';
 import { RecetasAddComponent } from './components/recetas/recetas-add.component';
+import { RecetasDetailComponent } from './components/recetas/recetas-detail.component';
+import { RecetasEditComponent } from './components/recetas/recetas-edit.component';
 import { ErrorComponent } from './components/error.component';
-import { ProductoAddComponent } from './components/productos/producto-add.component';
-import { ProductoDetailComponent } from './components/productos/producto-detail.component';
-import { ProductoEditComponent } from './components/productos/producto-edit-component';
+import { ProductoAddComponent } from './components/productos/productos-add.component';
+import { ProductoDetailComponent } from './components/productos/productos-detail.component';
+import { ProductoEditComponent } from './components/productos/productos-edit.component';
 
 const appRoutes: Routes = [
-//{path: '', component: InicioComponent},
-//{path: '', redirectTo: 'inicio', pathMatch: 'full'},
+{path: '', component: InicioComponent},
+{path: '', redirectTo: 'inicio', pathMatch: 'full'},
 {path: 'inicio', component: InicioComponent},
-{path: 'productos', component: ProductosComponent},
-{path: 'recetas', component: RecetasComponent},
 {path: 'acerca', component: AcercaComponent},
 {path: 'contactenos', component: ContactenosComponent},
+{path: 'recetas', component: RecetasComponent},
 {path: 'crear-receta', component: RecetasAddComponent},
-{path: 'receta/:id', component: RecetasComponent},
+{path: 'editar-receta/:id', component: RecetasEditComponent},
+{path: 'receta/:id', component: RecetasDetailComponent},
+{path: 'productos', component: ProductosComponent},
 {path: 'crear-producto', component: ProductoAddComponent},
 {path: 'producto/:id',component: ProductoDetailComponent},
 {path: 'editar-producto/:id',component: ProductoEditComponent},

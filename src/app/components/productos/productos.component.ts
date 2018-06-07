@@ -18,7 +18,7 @@ export class ProductosComponent implements OnInit{
     private _router:Router,
     private _productosService: ProductoService
   ){
-    this.titulo = 'Listado de productos';
+    this.titulo = 'Listado de Productos';
     this.confirmado = null;
   }
   

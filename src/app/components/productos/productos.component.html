@@ -15,10 +15,11 @@
 				<div *ngIf="!producto.imagen">
 					<div class="imagen-relleno"></div>
 				</div>
-				<div class="caption">
-					<p>{{producto.id}}ID</p>
+				<div class="container">					
 					<strong>{{producto.nombre}}</strong>
-					<p>{{producto.descripcion}}</p>
+				</div>
+				<div class="container">
+					<p class="cortar">{{producto.descripcion}}</p>
 					<div class="botones" *ngIf="confirmado != producto.id">
 						<a [routerLink] = "['/producto', producto.id]" class="btn btn-md btn-primary">Detalle</a>
 						<a [routerLink] = "['/editar-producto', producto.id]" class="btn btn-md btn-warning">Editar</a>

@@ -27,8 +27,7 @@ export class RecetasAddComponent implements OnInit {
   }
   
   ngOnInit(){
-    // this.getProductos();
-    console.log('productos-add.component cargado !!');
+    console.log('recetas-add.component cargado !!');
   }
 
   onSubmit(){
@@ -53,7 +52,7 @@ export class RecetasAddComponent implements OnInit {
               console.log(response.message);
               this._router.navigate(['/recetas']);
           }else{
-            console.log('Devolvio error guardarRecta ' + response.message)
+            console.log('Devolvio error guardarReceta ' + response.message)
           }
       },
       error =>{

@@ -6,7 +6,7 @@ import { GLOBAL } from '../global';
 
 @Component({
   selector: 'producto-add',
-  templateUrl: './producto-add.component.html',
+  templateUrl: './productos-add.component.html',
   providers: [ProductoService]
 })
 export class ProductoAddComponent implements OnInit{

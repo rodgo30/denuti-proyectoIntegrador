@@ -1,19 +1,19 @@
-import { ProductoDetailComponent } from './producto-detail.component';
-import { productosModel } from './../../models/productos.model';
-import { ProductoService } from './productos.service';
+import { RecetasDetailComponent } from './recetas-detail.component';
+import { recetasModel } from './../../models/recetas.model';
+import { RecetasService } from './recetas.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Component } from '@angular/core';
 import { GLOBAL } from './../global';
 
 @Component({
-    selector:'producto-edit',
-    templateUrl: './producto-add.component.html',
-    providers: [ProductoService]                  
+    selector:'receta-edit',
+    templateUrl: './recetas-add.component.html',
+    providers: [RecetasService]                  
 })
 
-export class ProductoEditComponent{
+export class RecetasEditComponent{
     public titulo:string;
-    public producto:productosModel;
+    public receta:recetasModel;
     public archivoASubir;
     public resulSubir;
     public is_edit;
@@ -21,26 +21,27 @@ export class ProductoEditComponent{
     constructor(
         private _route: ActivatedRoute,
         private _router:Router,
-        private _productosService: ProductoService
+        private _recetasService: RecetasService
     ){
-        this.titulo = 'Editar producto';
-        this.producto = new productosModel(0,"","","",0);
+        this.titulo = 'Modificar Receta';
+        this.receta = new recetasModel(0,"","","","");
         this.is_edit = true;
     }
 
     ngOnInit(){
-        this.getProducto();
+        console.log('GetReceta ' + this.receta);
+        this.getReceta();
     }
 
-    public getProducto(){
+    public getReceta(){
         this._route.params.forEach((params: Params) =>{
             let id = params['id'];
-            this._productosService.getProducto(id).subscribe(
+            this._recetasService.getReceta(id).subscribe(
                 response =>{
                     if(response.code == 200){
-                        this.producto = response.data;
+                        this.receta = response.data;
                     }else{
-                        this._router.navigate(['/productos']);
+                        this._router.navigate(['/recetas']);
                     }
                 },
                 error =>{
@@ -51,32 +52,32 @@ export class ProductoEditComponent{
     }    
 
     onSubmit(){
-        console.log(this.producto);
+        console.log(this.receta);
 
         if(this.archivoASubir && this.archivoASubir.length >= 1){
-            this._productosService.subirImagen(GLOBAL.url+'subir-imagen',[],this.archivoASubir).then((result)=>{
+            this._recetasService.subirImagen(GLOBAL.url+'subir-imagen',[],this.archivoASubir).then((result)=>{
                 console.log('Desde onSubmit ' +result);
                 this.resulSubir = result;
-                this.producto.imagen = this.resulSubir.nombrearchivo;
-                this.actualizarProducto();
+                this.receta.imagen = this.resulSubir.nombrearchivo;
+                this.actualizarReceta();
             },(error)=>{
                 console.log(<any>'Error OnSubmit ' + error);
             });
         }else{
-            this.actualizarProducto();
+            this.actualizarReceta();
         }
     }
     
-    public actualizarProducto(){
+    public actualizarReceta(){
         this._route.params.forEach((params: Params) =>{
             let id = params['id'];
-            this._productosService.editProducto(id, this.producto).subscribe(
+            this._recetasService.editReceta(id, this.receta).subscribe(
                 response =>{
                     if(response.code == 200){                                                      
-                        this._router.navigate(['/producto', id]);
+                        this._router.navigate(['/receta', id]);
                     }
                     else{
-                        console.log('Error actualizarProducto ' + response);
+                        console.log('Error actualizar receta ' + response.message);
                     }
                 },
                 error =>{

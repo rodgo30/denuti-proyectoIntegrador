@@ -1,38 +1,38 @@
 import { Component, OnInit } from '@angular/core';
-import { productosModel } from './../../models/productos.model';
-import { ProductoService } from './productos.service';
+import { recetasModel } from './../../models/recetas.model';
+import { RecetasService } from './recetas.service';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { GLOBAL } from '../global';
 
 @Component({
-  selector: 'producto-detail',
-  templateUrl: './producto-detail.component.html',
-  providers: [ProductoService]
+  selector: 'receta-detail',
+  templateUrl: './recetas-detail.component.html',
+  providers: [RecetasService]
 })
 
-export class ProductoDetailComponent{
-    public producto: productosModel;
+export class RecetasDetailComponent{
+    public receta: recetasModel;
 
     constructor(
         private _route: ActivatedRoute,
         private _router:Router,
-        private _productosService: ProductoService
+        private _recetasService: RecetasService
     ){}
 
     ngOnInit(){
-        console.log('Producto-datail Cargado');
-        this.getProducto();
+        console.log('receta-datail Cargado');
+        this.getReceta();
     }
 
-    public getProducto(){
+    public getReceta(){
         this._route.params.forEach((params: Params) =>{
             let id = params['id'];
-            this._productosService.getProducto(id).subscribe(
+            this._recetasService.getReceta(id).subscribe(
                 response =>{
                     if(response.code == 200){
-                        this.producto = response.data;
+                        this.receta = response.data;
                     }else{
-                        this._router.navigate(['/productos']);
+                        this._router.navigate(['/recetas']);
                     }
                 },
                 error =>{

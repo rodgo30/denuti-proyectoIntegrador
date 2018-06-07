@@ -31,7 +31,7 @@ export class RecetasComponent implements OnInit{
   private getRecetas(): void{
     this._recetasService.getRecetas().subscribe(
       result=>{      
-        console.log(result.code + " MAS " + result)
+        // console.log(result.code + " MAS " + result)
         if(result.code != 200){
           console.log('getRecetas ' + result);
         }else{

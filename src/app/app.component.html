@@ -1,26 +1,26 @@
 <!-- <div class="container"> -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"> <!--fixed-top-->
-      <a [routerLink]="['/inicio']" class="navbar-brand">DENUTI</a>
+      <a [routerLink]="['/inicio']" class="navbar-brand container2"><h3>DENUTI</h3></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav text-center">
           <li class="nav-item ">            
-            <a [routerLink]="['/inicio']" class="nav-link" [routerLinkActive]="['active']">Inicio 
+            <a [routerLink]="['/inicio']" class="nav-link container2" [routerLinkActive]="['active']"><h3>Inicio</h3>
             </a>          
           </li>
           <li class="nav-item">
-            <a [routerLink]="['/productos']" class="nav-link" [routerLinkActive]="['active']">Productos</a>
+            <a [routerLink]="['/productos']" class="nav-link container2" [routerLinkActive]="['active']"><h3>Productos</h3></a>
           </li>
         <li class="nav-item">
-            <a [routerLink]="['/recetas']" class="nav-link"[routerLinkActive]="['active']">Recetas</a>
+            <a [routerLink]="['/recetas']" class="nav-link container2"[routerLinkActive]="['active']"><h3>Recetas</h3></a>
           </li>
           <li class="nav-item">
-            <a [routerLink]="['/acerca']" class="nav-link"[routerLinkActive]="['active']">A cercade nosotros</a>
+            <a [routerLink]="['/acerca']" class="nav-link container2"[routerLinkActive]="['active']"><h3>A cercade nosotros</h3></a>
           </li>
           <li>
-            <a [routerLink]="['/contactenos']" class="nav-link" [routerLinkActive]="['active']">Contáctenos</a>
+            <a [routerLink]="['/contactenos']" class="nav-link container2" [routerLinkActive]="['active']"><h3>Contáctenos</h3></a>
           </li>
           <li>
             <span *ngIf="emailContacto" class="nav-link">Email de Contacto: {{emailContacto}}</span>

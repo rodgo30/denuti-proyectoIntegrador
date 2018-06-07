@@ -33,7 +33,7 @@ export class ProductoService {
   }
 
   public editProducto(id, producto: productosModel){
-    console.log ('entro editProducto');
+    // console.log ('entro editProducto');
     let json = JSON.stringify(producto);
     let params = "json="+json;
     let headers = new Headers({'Content-Type':'application/x-www-form-urlencoded'});

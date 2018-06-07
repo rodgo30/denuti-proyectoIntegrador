@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './acerca.component.html'
 })
 export class AcercaComponent implements OnInit{
-  titulo = 'Página DENUTI Acerca';
+  titulo = 'Acerca de Nosotros';
 
   ngOnInit(){
   	console.log('acerca.component cargado !!');

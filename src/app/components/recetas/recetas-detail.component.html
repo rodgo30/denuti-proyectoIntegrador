@@ -1,0 +1,28 @@
+<br>
+<br>
+<br>
+<div *ngIf="!receta">
+    <p>Cargando receta.....</p>
+</div>
+<div class="container" *ngIf="receta">
+    <div class="container" *ngIf="receta.imagen">        
+        <img src="http://localhost:8088/denuti-back-end/uploads/{{receta.imagen}}" class="detalle-imagen" />
+    </div>
+    <div class="container2">
+        <h1 class="mark">{{receta.nombre}}</h1>
+    </div>
+    <div class="container2">
+        <br>
+        <strong><h1>Ingredientes</h1></strong>
+        <textarea cols="100" rows="10" style="border: none;" readonly>{{receta.ingredientes}}</textarea>
+    </div>
+    <div class="container2">
+        <strong><h1>Preparación</h1></strong>
+        <br>
+        <textarea cols="100" rows="10" style="border: none;" readonly>{{receta.preparacion}}</textarea>
+    </div>    
+</div>
+<br>
+<div class="container">
+        <button class="col-lg-4" type="button" class="btn btn-primary" [routerLink]="['/recetas']">Regresar</button>
+</div>
