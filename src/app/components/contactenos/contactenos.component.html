@@ -6,23 +6,26 @@
 <div id="info">
     <h2>Denuti SAS</h2>
     <br>
-    <h4>Información de contracto</h4>
+    <h4>Información de contacto</h4>
     <br>
-    <h4>Dirección: Cll 75 # 49 08. Itagui</h4>
+    <h4>Dirección: Cll 75 # 49 08. Itagüi</h4>
     <br>
     <h4>Telefono: 5970645</h4>
     <br>
-    <h4>Email: info@denuti.com.co</h4>
+    <h4>Email: comercial@denuti.com</h4>
 </div>
 <div id="campos">
-    <h5>Nombre</h5>
-    <input type="text" class="col-lg-6 form-control">
-    <h5>Email</h5>
-    <input type="text" class="col-lg-6 form-control">
-    <h5>Mensaje</h5>
-    <textarea type="text" class="col-lg-6 form-control"></textarea>  
-    <br>
-    <input type="submit" value="Enviar" class="btn btn-success"/>   
+    <form #formContacto="ngForm">
+        <h5>Nombre</h5>
+        <!-- <span *ngIf="!nombre.valid && nombre.touched" class="label label-danger">El nombre es obligatorio</span> -->
+        <input type="text" class="col-lg-6 form-control" required>    
+        <h5>Email</h5>
+        <input type="email" class="col-lg-6 form-control" required>
+        <h5>Mensaje</h5>
+        <textarea type="text" class="col-lg-6 form-control" required></textarea>  
+        <br>
+        <input type="submit" value="Enviar" class="btn btn-success"/>   
+    </form> 
 </div>
 
 <!-- <main-email></main-email> -->

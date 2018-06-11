@@ -36,6 +36,15 @@
     
 }
 
+.detalle-imagenProd{
+    height: 500px;
+    width: 450px;
+    margin: 5% auto;
+    /* margin-left: 10%; */
+    display: block;
+    
+}
+
 .cortar{
     width:300px;
     height:50px;
@@ -113,10 +122,6 @@
 #texto{
     font-family: cursive;
     /* color: aliceblue; */
-}
-
-body{
-    /* background-color: #8FC0A9; */
 }
 
 #detRecetas{

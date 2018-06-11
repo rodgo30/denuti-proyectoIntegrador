@@ -27,7 +27,7 @@
 						<a (click) = "confirmarBorrado(producto.id)" class="btn btn-md btn-danger">Borrar</a>
 					</div>
 					<div class="confirmar" *ngIf="confirmado==producto.id">						
-						<a (click)="borrarProducto(producto.id)" class="btn btn-md btn-danger">Sí, deseo borrar el producto <strong>{{producto.nombre}}</strong> ?</a>
+						<a (click)="borrarProducto(producto.id)" class="btn btn-md btn-danger">Desea borrar el producto <strong>{{producto.nombre}}</strong> ?</a>
 						<a (click)="cancelarBorrado()" class="btn btn-md btn-warning">Cancelar</a>
 					</div>					
 				</div>

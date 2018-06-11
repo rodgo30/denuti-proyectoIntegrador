@@ -5,8 +5,12 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './contactenos.component.html'
 })
 export class ContactenosComponent implements OnInit{
-  titulo = 'Contactenos';
+  titulo:string;
   emailContacto:string;
+
+  constructor(){
+    this.titulo = 'Contactenos';
+  }
 
   ngOnInit(){
   	console.log('contactenos.component cargado !!');

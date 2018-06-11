@@ -6,27 +6,33 @@
         {{titulo}}
     </div>     -->
         <form #formProducto="ngForm" (ngSubmit) = "onSubmit()" class="col-lg-6" id="form-producto">
-            <label>
-                Nombre
+            <label id="texto"><h5>
+                Nombre</h5> 
                 <span *ngIf="!nombre.valid && nombre.touched" class="label label-danger">El nombre es obligatorio</span>
             </label>
             <input type="text" #nombre="ngModel" name="nombre" [(ngModel)]="producto.nombre" class="form-control" required/>
-            <label>
-                Descripción
+            <label id="texto"><h5> 
+                Descripción</h5> 
                 <span *ngIf="!descripcion.valid && descripcion.touched" class="label label-danger">La descripción es obligatoria</span>
             </label>
             <textarea type="text" #descripcion="ngModel" name="descripcion" [(ngModel)]="producto.descripcion" class="form-control" required></textarea>  
-            <label>
-                Mostrar en página
+            <label id="texto"><h5> 
+                Mostrar en página</h5>  
             </label>
             <input type="checkbox" #mostrarpagina="ngModel" name="mostrarpagina" [(ngModel)]="producto.mostrarpagina" class="form-control"/>            
-            <label>Imagen</label>
+            <label id="texto"><h5>Imagen</h5></label>
             <div *ngIf="is_edit">
                 <img src="http://localhost:8088/denuti-back-end/uploads/{{producto.imagen}}" width="200"/>
             </div>
             <input type="file"  class="form-control" (change)="elegirArchivo($event)"/>   
             <br>
-            <input type="submit" value="{{titulo}}" [disabled]="!formProducto.form.valid" class="btn btn-success"/>   
+            <!-- <input type="submit" value="{{titulo}}" [disabled]="!formProducto.form.valid" class="btn btn-success"/>    -->
+            <div class="form-group row">
+                    <div class="col-sm-6">
+                        <button class="btn btn-success" [disabled]="!formProducto.form.valid">{{titulo}}</button>
+                        <button class="btn btn-success" [routerLink]="['/productos']">Cancelar</button>
+                    </div>
+            </div>            
             <br>
             <br>                
         </form>
