@@ -8,10 +8,10 @@
     <div class="container" *ngIf="producto.imagen">        
         <img src="http://localhost:8088/denuti-back-end/uploads/{{producto.imagen}}" class="detalle-imagen"/>
     </div>
-    <div class="container2">
+    <div class="container2" id="texto">
         <h1>{{producto.nombre}}</h1>
     </div>
-    <div class="descripcion">
+    <div class="descripcion" id="texto">
         <p cols="100" rows="10" readonly class="lead">{{producto.descripcion}}</p>
     </div>    
 </div>

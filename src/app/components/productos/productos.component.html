@@ -1,7 +1,8 @@
 <br>
 <br>
 <br>
-<h1>{{titulo}}</h1>
+<br>
+<div id="titulo"><h1>{{titulo}}</h1></div>
 <div *ngIf="!productos">
 	Cargando productos....
 </div>
@@ -15,11 +16,11 @@
 				<div *ngIf="!producto.imagen">
 					<div class="imagen-relleno"></div>
 				</div>
-				<div class="container">					
-					<strong>{{producto.nombre}}</strong>
+				<div class="container" id="texto">					
+					<h4><strong>{{producto.nombre}}</strong></h4>
 				</div>
-				<div class="container">
-					<p class="cortar">{{producto.descripcion}}</p>
+				<div class="container" id="texto">
+					<!-- <p class="cortar">{{producto.descripcion}}</p> -->
 					<div class="botones" *ngIf="confirmado != producto.id">
 						<a [routerLink] = "['/producto', producto.id]" class="btn btn-md btn-primary">Detalle</a>
 						<a [routerLink] = "['/editar-producto', producto.id]" class="btn btn-md btn-warning">Editar</a>
@@ -34,6 +35,9 @@
 		</div>
 	</div>
 </div>
+
+
 <div style="padding: 15px;">
+	<hr>
 	<button type="button" class="btn btn-success" [routerLink]="['/crear-producto']">Crear Producto</button>
 </div>

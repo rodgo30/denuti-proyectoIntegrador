@@ -67,3 +67,59 @@
     font-family: Comic Sans MS;
     
 }
+
+#info{
+    /* background-color: aqua; */
+    float: left;
+    width: 30%;
+    height: 40%;
+    margin-top: 5%;
+    margin-left: 5%;
+    font-family: cursive; 
+}
+
+
+#campos{
+    /* background-color: chartreuse; */
+    float: right;
+    width: 50%;
+    margin-top: 5%;
+    margin-right: 5%;
+    font-family: cursive; 
+}
+
+#carrusel{
+    margin-top: 6%;
+}
+
+#footer{
+    background-color: brown;
+    float: none;
+    clear: both;
+}
+
+#titulo{
+    text-align: center;
+    font-family: cursive;
+    color:#343A40;
+}
+
+#carr{
+    width: 50%;
+    height: 50%;
+    text-align: center;
+}
+
+#texto{
+    font-family: cursive;
+    /* color: aliceblue; */
+}
+
+body{
+    /* background-color: #8FC0A9; */
+}
+
+#detRecetas{
+    margin-left: 1px;
+    margin-right: 1px;
+}

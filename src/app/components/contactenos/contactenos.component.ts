@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './contactenos.component.html'
 })
 export class ContactenosComponent implements OnInit{
-  titulo = 'Página DENUTI contactenos';
+  titulo = 'Contactenos';
   emailContacto:string;
 
   ngOnInit(){

@@ -1,12 +1,13 @@
 <br>
 <br>
 <br>
-<h1>{{titulo}}</h1>
+<br>
+<div id="titulo"><h1>{{titulo}}</h1></div>
 <div *ngIf="!recetas">
 	Cargando Recetas....
 </div>
 <div *ngIf="recetas">
-	<div class="row">
+	<div class="row" id="detRecetas">
 		<div class="col-lg-4" *ngFor="let receta of recetas">
 			<div class="thumnnail">
 				<div *ngIf="receta.imagen" class="imagen-container">
@@ -36,6 +37,6 @@
 	</div>
 </div>
 <br>
-<div class="container">
+<div style="padding: 15px;">
 	<button type="button" class="btn btn-success" [routerLink]="['/crear-receta']">Crear Receta</button>
 </div>
